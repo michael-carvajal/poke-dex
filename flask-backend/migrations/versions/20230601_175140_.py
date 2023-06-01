@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: fc67ed4731c5
+Revision ID: 5fbd294af0e1
 Revises: 
-Create Date: 2023-06-01 15:41:24.358805
+Create Date: 2023-06-01 17:51:40.783393
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'fc67ed4731c5'
+revision = '5fbd294af0e1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,7 +28,7 @@ def upgrade():
     sa.Column('number', sa.Integer(), nullable=False),
     sa.Column('attack', sa.Integer(), nullable=False),
     sa.Column('defense', sa.Integer(), nullable=False),
-    sa.Column('imageURL', sa.String(), nullable=False),
+    sa.Column('imageUrl', sa.String(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('typeId', sa.Integer(), nullable=False),
     sa.Column('moves', sa.String(), nullable=False),
@@ -43,7 +43,7 @@ def upgrade():
     op.create_table('items',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('happiness', sa.Integer(), nullable=True),
-    sa.Column('imageURL', sa.String(), nullable=False),
+    sa.Column('imageUrl', sa.String(), nullable=False),
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('pokemonId', sa.Integer(), nullable=False),

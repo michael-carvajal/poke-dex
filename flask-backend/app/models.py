@@ -10,7 +10,7 @@ class Pokemon(db.Model):
     number = db.Column(db.Integer, unique=True, nullable=False)
     attack = db.Column(db.Integer, nullable=False)
     defense = db.Column(db.Integer, nullable=False)
-    imageURL = db.Column(db.String, nullable=False)
+    imageUrl = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False, unique=True)
     typeId = db.Column(db.Integer, db.ForeignKey("pokemontypes.id"), nullable=False)
     moves = db.Column(db.String, nullable=False)
@@ -28,10 +28,10 @@ class Pokemon(db.Model):
             "number": self.number,
             "attack": self.attack,
             "defense": self.defense,
-            "imageURL": self.imageURL,
+            "imageUrl": self.imageUrl,
             "name": self.name,
             "typeId": self.typeId,
-            "moves": self.moves,
+            "moves": self.moves.split(",")
         }
 
 
@@ -40,7 +40,7 @@ class Item(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     happiness = db.Column(db.Integer)
-    imageURL = db.Column(db.String, nullable=False)
+    imageUrl = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     pokemonId = db.Column(db.Integer, db.ForeignKey("pokemons.id"), nullable=False)
@@ -51,7 +51,7 @@ class Item(db.Model):
         return {
             "id": self.id,
             "happiness": self.happiness,
-            "imageURL": self.imageURL,
+            "imageUrl": self.imageUrl,
             "name": self.name,
             "price": self.price,
         }
